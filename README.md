@@ -264,4 +264,6 @@ v0.4 URDF/colisões · v0.5 dinâmica · v1.0 ROS 2. Detalhes em [docs/ROADMAP.m
 
 ## Licença
 
-A definir.
+Distribuído sob a licença MIT. Veja [LICENSE](LICENSE) para mais detalhes.
+
+© 2026 Marques Robotics
