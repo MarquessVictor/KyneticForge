@@ -1,0 +1,104 @@
+@import 'tailwindcss';
+
+/*
+ * KyneticForge design tokens. Dark, graphite-based palette with a single cyan
+ * accent. Axis colours follow the usual CAD convention X=red, Y=green, Z=blue.
+ */
+@theme {
+  --color-ink-950: #08090b;
+  --color-ink-900: #0d1014;
+  --color-ink-850: #12161b;
+  --color-ink-800: #171c22;
+  --color-ink-700: #212830;
+  --color-ink-600: #2c3540;
+  --color-ink-500: #3d4855;
+  --color-ink-400: #5c6978;
+  --color-ink-300: #8592a1;
+  --color-ink-200: #b4bec9;
+  --color-ink-100: #e6edf3;
+
+  --color-accent-500: #22c3e6;
+  --color-accent-400: #4fd3f0;
+  --color-accent-600: #1798b5;
+  --color-accent-900: #0b3a46;
+
+  --color-axis-x: #e5484d;
+  --color-axis-y: #46a758;
+  --color-axis-z: #3e8ef7;
+
+  --color-ok: #3fb950;
+  --color-warn: #d29922;
+  --color-err: #f85149;
+
+  --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Cascadia Code', 'Consolas', ui-monospace, monospace;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-ink-950 text-ink-100 antialiased;
+    font-family: var(--font-sans);
+    font-size: 13px;
+  }
+
+  ::selection {
+    background: var(--color-accent-900);
+  }
+
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-ink-600) transparent;
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--color-accent-500);
+    outline-offset: 1px;
+  }
+}
+
+@layer components {
+  .kf-range {
+    @apply h-1 w-full cursor-pointer appearance-none rounded-full bg-ink-600;
+  }
+  .kf-range::-webkit-slider-thumb {
+    @apply h-3 w-3 appearance-none rounded-full border border-ink-900 bg-accent-500;
+  }
+  .kf-range::-moz-range-thumb {
+    @apply h-3 w-3 rounded-full border border-ink-900 bg-accent-500;
+  }
+  .kf-range:disabled {
+    @apply cursor-not-allowed opacity-50;
+  }
+
+  .kf-input {
+    @apply h-7 w-full rounded border border-ink-600 bg-ink-900 px-2 text-ink-100 tabular-nums
+      outline-none transition-colors placeholder:text-ink-400 focus:border-accent-500;
+  }
+  .kf-input[aria-invalid='true'] {
+    @apply border-err;
+  }
+
+  .kf-label {
+    @apply text-[11px] font-medium uppercase tracking-wide text-ink-300;
+  }
+
+  .kf-mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}

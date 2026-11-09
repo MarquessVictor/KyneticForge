@@ -1,0 +1,44 @@
+
+# Credenciais e configurações privadas
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Node / React
+node_modules/
+dist/
+coverage/
+
+# Bancos de dados locais
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+logs/
+
+# Ferramentas locais (venv/Python baixados pelo setup — contêm caminhos da máquina)
+.tooling/
+*.egg-info/
+build/
+
+# IDE e assistentes de IA
+.vscode/
+.idea/
+.claude/
+.codex/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
